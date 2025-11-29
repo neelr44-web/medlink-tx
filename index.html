@@ -529,6 +529,42 @@
       border-color: var(--accent-soft-2);
       background: var(--card-soft);
     }
+/* === SUBTLE TAN MATTE BACKGROUND UPGRADE === */
+body {
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(180, 160, 130, 0.08) 0%,
+      rgba(5, 6, 10, 1) 70%
+    ),
+    #05060a;
+  background-attachment: fixed;
+}
+/* === FIX WHITE BLOCKS: MATTE CARDS === */
+.card,
+.step-card,
+.resource-card {
+  background: #0b0e16 !important;    /* deep matte navy */
+  border: 1px solid #1f2937 !important;
+  color: #f3f4f6 !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(6px);
+}
+
+.card:hover,
+.step-card:hover,
+.resource-card:hover {
+  background: #111827 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.75) !important;
+}
+
+/* text inside cards */
+.card p,
+.step-card p,
+.resource-card p {
+  color: #d1d5db !important;
+}
 
     .card-type-pill {
       position: absolute;
