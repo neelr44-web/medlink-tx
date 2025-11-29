@@ -2,8 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MedLink TX – Free & Low-Cost Care Near Allen</title>
+  <title>MedLink TX – Free & Low-Cost Clinics Near Allen, Texas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ❗ SEO BASICS -->
+  <meta name="description" content="MedLink TX is a student-built directory that helps people near Allen, Texas find free and low-cost clinics, counseling centers, and 24/7 crisis hotlines." />
+  <meta name="keywords" content="Allen Texas free clinic, low cost clinics Allen, Collin County health resources, teen mental health Allen, free counseling, crisis hotline Texas" />
+  <meta name="author" content="Neel Reddy" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical (update later if you buy a custom domain) -->
+  <link rel="canonical" href="https://neelr44-web.github.io/medlink-tx/" />
+
+  <!-- Open Graph (for social sharing / link previews) -->
+  <meta property="og:title" content="MedLink TX – Free & Low-Cost Clinics Near Allen, Texas" />
+  <meta property="og:description" content="Student-built directory of nearby clinics, counseling centers, and 24/7 crisis hotlines for Allen and Collin County." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neelr44-web.github.io/medlink-tx/" />
+  <!-- Upload an image called og-card.png to your repo root to power this preview -->
+  <meta property="og:image" content="https://neelr44-web.github.io/medlink-tx/og-card.png" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MedLink TX – Free & Low-Cost Clinics Near Allen, Texas" />
+  <meta name="twitter:description" content="Find free and low-cost clinics, counseling, and crisis hotlines near Allen, TX." />
+  <meta name="twitter:image" content="https://neelr44-web.github.io/medlink-tx/og-card.png" />
+
+  <!-- JSON-LD structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MedLink TX",
+    "url": "https://neelr44-web.github.io/medlink-tx/",
+    "description": "Student-built directory of free and low-cost clinics, counseling centers, and crisis hotlines near Allen, Texas.",
+    "creator": {
+      "@type": "Person",
+      "name": "Neel Reddy"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://neelr44-web.github.io/medlink-tx/#resources",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --bg-body: #f5eee6;
@@ -394,8 +438,6 @@
       color: #9ca3af;
     }
 
-    /* Sections */
-
     section {
       padding: 0.75rem 1.25rem 2.5rem;
     }
@@ -502,8 +544,6 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
-
-    /* Resources */
 
     .filters-row {
       display: flex;
@@ -712,14 +752,14 @@
           <div class="logo-text-sub">Free & low-cost care near Allen</div>
         </div>
       </div>
-     <nav class="nav-links">
-  <a href="#how" class="nav-pill">How it works</a>
-  <a href="#resources" class="nav-pill">Browse clinics</a>
-  <a href="#resources" class="nav-pill">
-    <span class="dot"></span>
-    View resources
-  </a>
-</nav>
+      <nav class="nav-links">
+        <a href="#how" class="nav-pill">How it works</a>
+        <a href="#resources" class="nav-pill">Browse clinics</a>
+        <a href="about.html" class="nav-pill">
+          <span class="dot"></span>
+          About the student builder
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -920,6 +960,7 @@
       </div>
       <div class="footer-links">
         <span class="footer-link" onclick="scrollToSection('top')">Back to top ↑</span>
+        <a class="footer-link" href="about.html">About the builder</a>
         <span>Last updated: 2025</span>
       </div>
     </div>
@@ -1254,9 +1295,7 @@
 
       const meta = document.createElement("div");
       meta.className = "resource-meta";
-      meta.innerHTML = `<strong>${res.area}</strong>${
-        res.address ? " · " + res.address : ""
-      }`;
+      meta.innerHTML = `<strong>${res.area}</strong>${res.address ? " · " + res.address : ""}`;
 
       const notes = document.createElement("div");
       notes.className = "resource-notes";
