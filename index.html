@@ -716,6 +716,73 @@
     .footer a:hover {
       opacity: 1;
     }
+    /* === OVERRIDES TO REMOVE NEON & MAKE MATTE === */
+
+    :root {
+      --bg: #05060a;
+      --bg-soft: #05060a;
+      --card: #0b0e16;
+      --accent: #6366f1;            /* soft indigo */
+      --accent-soft: rgba(99,102,241,0.08);
+      --accent-strong: #4f46e5;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #171a23;
+    }
+
+    .hero-badge {
+      background: #0b0e16;
+      border-color: #1f2937;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+    }
+
+    .hero-dot {
+      background: #e5e7eb;
+      box-shadow: none;
+    }
+
+    .hero-title span.highlight {
+      background: none;
+      color: #e5e7eb;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: #f9fafb;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.8);
+    }
+
+    .btn-primary:hover {
+      background: #020617;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.9);
+    }
+
+    .nav-cta {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #1f2937;
+      box-shadow: none;
+    }
+
+    .nav-cta:hover {
+      background: #020617;
+      border-color: #374151;
+      box-shadow: none;
+    }
+
+    .pill-accent,
+    .filter-button.active {
+      background: #111827;
+      border-color: #1f2937;
+      color: #f9fafb;
+      box-shadow: none;
+    }
+
+    .card:hover {
+      background: #0b0e16;
+      border-color: #1f2937;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.85);
+    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
