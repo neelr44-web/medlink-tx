@@ -2,32 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedLink TX – Free Clinics & Mental Health Resources</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <title>MedLink TX – Free & Low-Cost Care Near Allen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #05060a;
-      --bg-alt: #080a11;
-      --card: #0b0e16;
-      --card-soft: #10131d;
-      --border: #171a23;
-      --border-soft: #1f2431;
-      --accent: #6473ff;        /* soft indigo */
-      --accent-soft: rgba(100, 115, 255, 0.08);
-      --accent-soft-2: rgba(100, 115, 255, 0.16);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --muted-soft: #6b7280;
-      --radius-lg: 18px;
-      --radius-xl: 22px;
-      --radius-pill: 999px;
-      --shadow-soft: 0 22px 50px rgba(0, 0, 0, 0.7);
-      --transition: 220ms ease-out;
+      --bg-body: #f5eee6;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f7f1e8;
+      --bg-dark: #0f172a;
+      --accent: #e0bfa3;
+      --accent-soft: #f0dcc7;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --radius-xl: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.22);
     }
 
     * {
@@ -36,15 +24,13 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b0e16 0, #05060a 52%, #030409 100%);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f8efe3, #f0e3d3 45%, #e4d4c2 80%, #dac8b5 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     a {
@@ -52,1281 +38,1309 @@
       text-decoration: none;
     }
 
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 18px 16px 72px;
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 420ms ease-out, transform 420ms ease-out;
-      will-change: opacity, transform;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* NAVBAR */
-    .nav {
+    header {
       position: sticky;
       top: 0;
-      z-index: 32;
-      backdrop-filter: blur(20px);
-      background: linear-gradient(to bottom, rgba(5, 6, 10, 0.96), rgba(5, 6, 10, 0.85), transparent);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.55);
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.94),
+        rgba(15, 23, 42, 0.88)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     }
 
     .nav-inner {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 10px 16px 8px;
+      padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 1rem;
     }
 
-    .logo {
+    .logo-mark {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.65rem;
     }
 
-    .logo-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 25% 20%, #e5e7eb, #111827);
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fefce8, #fbbf24 35%, #ef4444 90%);
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9),
+        0 12px 30px rgba(0, 0, 0, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      color: #05060a;
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
+      color: #0b1120;
+      font-weight: 800;
+      font-size: 0.9rem;
     }
 
-    .logo-main {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 15px;
-    }
-
-    .logo-sub {
-      font-size: 11px;
+    .logo-text-main {
+      font-weight: 650;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted-soft);
-      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      color: #e5e7eb;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: #9ca3af;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 14px;
-      font-size: 13px;
+      gap: 0.75rem;
+      font-size: 0.8rem;
     }
 
-    .nav-link {
-      color: var(--muted);
-      cursor: pointer;
-      padding: 4px 0;
-      border-bottom: 1px solid transparent;
-      transition: color var(--transition), border-color var(--transition);
-    }
-
-    .nav-link:hover {
+    .nav-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
       color: #e5e7eb;
-      border-color: var(--accent-soft-2);
-    }
-
-    .nav-cta {
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      background: #111827;
-      color: #f9fafb;
-      font-size: 13px;
-      font-weight: 500;
       cursor: pointer;
-      display: inline-flex;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+        transform 0.12s ease;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      transition: background var(--transition), transform var(--transition), border-color var(--transition);
+      gap: 0.35rem;
     }
 
-    .nav-cta span {
-      font-size: 14px;
+    .nav-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
     }
 
-    .nav-cta:hover {
-      background: #0f172a;
-      border-color: var(--accent-soft-2);
+    .nav-pill:hover {
+      background: rgba(148, 163, 184, 0.18);
       transform: translateY(-1px);
     }
 
-    /* HERO */
+    main {
+      flex: 1;
+    }
+
     .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.75rem 1.25rem 2.5rem;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 40px;
-      margin-top: 26px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.05fr);
+      gap: 2.5rem;
       align-items: center;
     }
 
-    .hero-left {
-      padding-right: 10px;
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2rem;
+      }
     }
 
-    .hero-pill {
+    .hero-text {
+      color: #0f172a;
+    }
+
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 10px 4px 4px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
-      margin-bottom: 14px;
-    }
-
-    .hero-dot {
-      width: 16px;
-      height: 16px;
+      gap: 0.45rem;
+      padding: 0.15rem 0.45rem;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #e5e7eb, #4b5563);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.02);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
     }
 
-    .hero-pill span {
-      font-size: 12px;
-      color: var(--muted);
+    .hero-tag-badge {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 0.7rem;
     }
 
     .hero-title {
-      font-size: clamp(32px, 5vw, 44px);
-      line-height: 1.08;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      margin-bottom: 12px;
+      font-size: clamp(2.1rem, 3vw + 1rem, 2.7rem);
+      letter-spacing: -0.04em;
+      font-weight: 750;
+      color: #0f172a;
+      margin-bottom: 0.8rem;
     }
 
-    .hero-title span.highlight {
-      background: linear-gradient(140deg, #f3f4f6, #d1d5db);
+    .hero-title span.accent {
+      background: linear-gradient(to right, #f97316, #fbbf24);
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .hero-sub {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-      max-width: 520px;
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 1.4rem;
     }
 
-    .hero-actions {
+    .hero-badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
     }
 
-    .btn-primary {
-      padding: 10px 20px;
-      border-radius: var(--radius-pill);
+    .hero-badge {
+      font-size: 0.72rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .search-shell {
+      background: rgba(255, 255, 255, 0.82);
+      border-radius: 999px;
+      padding: 0.15rem 0.25rem 0.15rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      margin-bottom: 0.9rem;
+    }
+
+    .search-shell input {
+      flex: 1;
       border: none;
-      background: linear-gradient(135deg, #111827, #020617);
-      color: #f9fafb;
-      font-weight: 500;
-      font-size: 14px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      background: transparent;
+      padding: 0.5rem 0.25rem;
+      font-size: 0.9rem;
+      outline: none;
+      color: #111827;
     }
 
-    .btn-primary span {
-      font-size: 16px;
+    .search-shell input::placeholder {
+      color: #9ca3af;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.85);
-      background: linear-gradient(135deg, #1f2937, #020617);
-    }
-
-    .btn-secondary {
-      padding: 9px 16px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      background: #05060a;
-      color: var(--muted);
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: border-color var(--transition), background var(--transition), transform var(--transition), color var(--transition);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent-soft-2);
-      background: #080a11;
+    .search-button {
+      border-radius: 999px;
+      border: none;
+      background: #0f172a;
       color: #e5e7eb;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.18s ease;
+    }
+
+    .search-button:hover {
       transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.6);
+      background: #020617;
     }
 
-    .hero-meta {
-      font-size: 11px;
-      color: var(--muted-soft);
-      margin-top: 4px;
-    }
-
-    .hero-right {
-      position: relative;
+    .search-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
     .hero-card {
-      background: var(--card);
-      border-radius: var(--radius-xl);
-      padding: 20px 18px 16px;
-      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, #111827, #020617 55%);
       box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.4rem 1.3rem;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero-card-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      color: var(--muted);
-      letter-spacing: 0.18em;
-      margin-bottom: 8px;
-    }
-
-    .hero-card-title {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .hero-card-sub {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .hero-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .chip {
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      padding: 4px 10px;
-      font-size: 11px;
-      color: var(--muted);
-      background: var(--card-soft);
-    }
-
-    .chip-strong {
-      border-color: var(--accent-soft-2);
-      background: #111827;
       color: #e5e7eb;
     }
 
-    .hero-stats {
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(251, 191, 36, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(248, 250, 252, 0.08), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-pill-row {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
     }
 
-    .stat {
-      flex: 1 1 auto;
-      min-width: 90px;
+    .hero-card-pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(10px);
     }
 
-    .stat-label {
-      font-size: 11px;
-      color: var(--muted-soft);
+    .hero-card-title {
+      font-size: 1.1rem;
+      font-weight: 650;
+      margin-bottom: 0.4rem;
     }
 
-    .stat-value {
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 2px;
+    .hero-card-subtitle {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-bottom: 0.9rem;
     }
 
-    /* SECTIONS */
-    .section {
-      margin-top: 56px;
-      padding-top: 8px;
+    .hero-card-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: stretch;
+    }
+
+    .hero-chip-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .hero-chip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.55rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.72rem;
+    }
+
+    .hero-chip-label {
+      color: #e5e7eb;
+    }
+
+    .hero-chip-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      background: rgba(34, 197, 94, 0.18);
+      color: #bbf7d0;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hero-metric {
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 0.55rem 0.65rem;
+      font-size: 0.7rem;
+    }
+
+    .hero-metric-label {
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-metric-value {
+      font-weight: 650;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .hero-footnote {
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 0.75rem 1.25rem 2.5rem;
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-card {
+      border-radius: 26px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(248, 244, 238, 0.98)
+      );
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.22);
+      padding: 1.8rem 1.6rem 1.7rem;
+      backdrop-filter: blur(16px);
     }
 
     .section-header {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 10px;
-      align-items: flex-start;
-      margin-bottom: 14px;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title-wrap {
+      max-width: 420px;
+    }
+
+    .eyebrow {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 0.25rem;
     }
 
     .section-title {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 1.25rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
     }
 
-    .section-sub {
-      font-size: 12px;
-      color: var(--muted);
-      max-width: 420px;
-      line-height: 1.5;
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    /* HOW IT WORKS STRIP */
-    .steps-strip {
+    .section-actions {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .step-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 14px;
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .section-card {
+        padding: 1.4rem 1.2rem 1.4rem;
+      }
+      .step-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     .step-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-soft);
-      font-size: 13px;
+      border-radius: 18px;
+      background: var(--bg-card-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.9rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-pill {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
     }
 
     .step-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted-soft);
-      margin-bottom: 6px;
-    }
-
-    .step-title {
-      font-size: 14px;
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 0.25rem;
     }
 
     .step-body {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    /* FILTER BAR */
-    .filter-bar {
-      background: #080a11;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 12px;
+    /* Resources */
+
+    .filters-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      box-shadow: var(--shadow-soft);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.75rem;
     }
 
-    .filter-label {
-      font-size: 12px;
-      color: var(--muted-soft);
-      margin-right: 4px;
-    }
-
-    .filter-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .filter-button {
-      padding: 6px 11px;
-      font-size: 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      background: #05060a;
-      color: var(--muted);
+    .filter-pill {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(248, 250, 252, 0.65);
       cursor: pointer;
-      transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
-    }
-
-    .filter-button:hover {
-      border-color: var(--accent-soft-2);
-      transform: translateY(-0.5px);
-    }
-
-    .filter-button.active {
-      background: var(--accent-soft);
-      border-color: var(--accent-soft-2);
-      color: #f9fafb;
-    }
-
-    .search-input {
-      flex: 1;
-      min-width: 160px;
-      display: flex;
+      color: var(--text-muted);
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      padding: 7px 11px;
-      background: #05060a;
+      gap: 0.3rem;
+      transition: background 0.15s ease, color 0.15s ease,
+        border-color 0.15s ease;
     }
 
-    .search-input span {
-      font-size: 11px;
-      color: var(--muted-soft);
+    .filter-pill.active {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-color: #020617;
     }
 
-    .search-input input {
-      flex: 1;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-      font-size: 12px;
+    .filter-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
     }
 
-    /* GRID */
-    .grid {
+    .resource-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
+      gap: 1rem;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 14px 14px 12px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+    @media (max-width: 1024px) {
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.85);
-      border-color: var(--accent-soft-2);
-      background: var(--card-soft);
-    }
-/* === SUBTLE TAN MATTE BACKGROUND UPGRADE === */
-body {
-  background: radial-gradient(
-      circle at 30% 20%,
-      rgba(180, 160, 130, 0.08) 0%,
-      rgba(5, 6, 10, 1) 70%
-    ),
-    #05060a;
-  background-attachment: fixed;
-}
-/* === FIX WHITE BLOCKS: MATTE CARDS === */
-.card,
-.step-card,
-.resource-card {
-  background: #0b0e16 !important;    /* deep matte navy */
-  border: 1px solid #1f2937 !important;
-  color: #f3f4f6 !important;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.55) !important;
-  border-radius: 16px !important;
-  backdrop-filter: blur(6px);
-}
-
-.card:hover,
-.step-card:hover,
-.resource-card:hover {
-  background: #111827 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.75) !important;
-}
-
-/* text inside cards */
-.card p,
-.step-card p,
-.resource-card p {
-  color: #d1d5db !important;
-}
-
-    .card-type-pill {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: var(--muted-soft);
-      background: #05060a;
-      border-radius: var(--radius-pill);
-      padding: 4px 8px;
-      border: 1px solid var(--border-soft);
+    @media (max-width: 720px) {
+      .resource-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 2px;
-      max-width: 78%;
-    }
-
-    .card-location {
-      font-size: 11px;
-      color: var(--muted-soft);
-      margin-bottom: 8px;
-    }
-
-    .card-tags {
+    .resource-card {
+      border-radius: 18px;
+      background: var(--bg-card);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 0.85rem 0.9rem 0.9rem;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
+      flex-direction: column;
+      gap: 0.45rem;
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+        border-color 0.16s ease, background 0.16s ease;
     }
 
-    .card-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border-radius: var(--radius-pill);
-      padding: 3px 8px;
-      border: 1px solid var(--border-soft);
-      color: var(--muted);
-      background: #05060a;
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+      border-color: rgba(15, 23, 42, 0.9);
     }
 
-    .badge-free {
-      border-color: var(--accent-soft-2);
-      background: var(--accent-soft);
-      color: #e5e7eb;
-    }
-
-    .badge-teen {
-      border-color: #374151;
-      background: #111827;
-      color: #e5e7eb;
-    }
-
-    .badge-urgent {
-      border-color: #7f1d1d;
-      background: #111827;
-      color: #fecaca;
-    }
-
-    .card-desc {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-
-    .card-actions {
+    .resource-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
+      align-items: flex-start;
+      gap: 0.4rem;
     }
 
-    .card-call {
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      border: none;
-      background: #111827;
-      color: #e5e7eb;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    .resource-name {
+      font-size: 0.9rem;
+      font-weight: 650;
+      color: #0f172a;
     }
 
-    .card-call:hover {
+    .badge-type {
+      border-radius: 999px;
+      padding: 0.2rem 0.45rem;
+      font-size: 0.65rem;
       background: #0f172a;
-      transform: translateY(-1px);
-    }
-
-    .card-call.disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
-
-    .card-link {
-      font-size: 11px;
       color: #e5e7eb;
-      opacity: 0.9;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: opacity var(--transition), transform var(--transition);
+      white-space: nowrap;
     }
 
-    .card-link:hover {
-      opacity: 1;
-      transform: translateY(-1px);
+    .resource-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
-    /* ABOUT PREVIEW */
-    .about-body {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-top: 10px;
-      max-width: 760px;
+    .resource-meta strong {
+      font-weight: 600;
+      color: #111827;
     }
 
-    .pill-row-inline {
+    .resource-notes {
+      font-size: 0.77rem;
+      color: #4b5563;
+    }
+
+    .resource-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 0.25rem;
+      margin-top: 0.2rem;
     }
 
-    .pill {
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-soft);
-      padding: 4px 10px;
-      font-size: 11px;
-      color: var(--muted);
-      background: #05060a;
+    .tag-pill {
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      background: #f3e4d3;
+      color: #7c2d12;
     }
 
-    .pill-strong {
-      border-color: var(--accent-soft-2);
-      background: var(--accent-soft);
-      color: #f9fafb;
+    .tag-pill.free {
+      background: #dcfce7;
+      color: #166534;
     }
 
-    .disclaimer {
-      font-size: 11px;
-      color: var(--muted-soft);
-      margin-top: 10px;
-      max-width: 760px;
-      line-height: 1.6;
+    .resource-actions {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.72rem;
     }
 
-    /* FOOTER */
-    .footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+    .resource-link {
+      padding: 0.27rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .resource-link.primary {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-color: #020617;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.25rem 1.8rem;
+      background: rgba(15, 23, 42, 0.96);
+      color: #9ca3af;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      font-size: 0.74rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--muted-soft);
+      gap: 0.8rem;
     }
 
-    .footer strong {
+    .footer-inner strong {
       color: #e5e7eb;
-      font-weight: 500;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 0.6rem;
     }
 
-    .footer a {
-      opacity: 0.9;
-    }
-
-    .footer a:hover {
-      opacity: 1;
-    }
-    /* === OVERRIDES TO REMOVE NEON & MAKE MATTE === */
-
-    :root {
-      --bg: #05060a;
-      --bg-soft: #05060a;
-      --card: #0b0e16;
-      --accent: #6366f1;            /* soft indigo */
-      --accent-soft: rgba(99,102,241,0.08);
-      --accent-strong: #4f46e5;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: #171a23;
-    }
-
-    .hero-badge {
-      background: #0b0e16;
-      border-color: #1f2937;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.7);
-    }
-
-    .hero-dot {
-      background: #e5e7eb;
-      box-shadow: none;
-    }
-
-    .hero-title span.highlight {
-      background: none;
-      color: #e5e7eb;
-    }
-
-    .btn-primary {
-      background: #111827;
-      color: #f9fafb;
-      box-shadow: 0 16px 34px rgba(0,0,0,0.8);
-    }
-
-    .btn-primary:hover {
-      background: #020617;
-      box-shadow: 0 22px 50px rgba(0,0,0,0.9);
-    }
-
-    .nav-cta {
-      background: #111827;
-      color: #f9fafb;
-      border-color: #1f2937;
-      box-shadow: none;
-    }
-
-    .nav-cta:hover {
-      background: #020617;
-      border-color: #374151;
-      box-shadow: none;
-    }
-
-    .pill-accent,
-    .filter-button.active {
-      background: #111827;
-      border-color: #1f2937;
-      color: #f9fafb;
-      box-shadow: none;
-    }
-
-    .card:hover {
-      background: #0b0e16;
-      border-color: #1f2937;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.85);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-right {
-        order: -1;
-      }
-      .hero-left {
-        padding-right: 0;
-      }
-      .steps-strip {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner {
-        padding-inline: 10px;
-      }
-      .nav-links {
-        gap: 10px;
-      }
-      .nav-link {
-        display: none;
-      }
-      .hero {
-        margin-top: 18px;
-      }
-      .hero-card {
-        padding: 16px 14px 13px;
-      }
-      .filter-bar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .steps-strip {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .footer-link {
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <header class="nav">
+<div class="page-shell" id="top">
+  <header>
     <div class="nav-inner">
-      <div class="logo">
-        <div class="logo-badge">M</div>
+      <div class="logo-mark">
+        <div class="logo-icon">TX</div>
         <div>
-          <div class="logo-main">MedLink TX</div>
-          <div class="logo-sub">Care · Clinics · Support</div>
+          <div class="logo-text-main">MEDLINK TX</div>
+          <div class="logo-text-sub">Free & low-cost care near Allen</div>
         </div>
       </div>
-      <div class="nav-links">
-        <button class="nav-link" onclick="scrollToSection('how-section')">How it works</button>
-        <button class="nav-link" onclick="scrollToSection('resources-section')">Resources</button>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-        <button class="nav-cta" onclick="scrollToSection('resources-section')">
-          Find support <span>↓</span>
+      <nav class="nav-links">
+        <a href="#how" class="nav-pill">How it works</a>
+        <a href="#resources" class="nav-pill">Browse clinics</a>
+        <button class="nav-pill" type="button" onclick="scrollToSection('resources')">
+          <span class="dot"></span>
+          View resources
         </button>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main class="page">
+  <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left reveal">
-        <div class="hero-pill">
-          <div class="hero-dot"></div>
-          <span>Free & low-cost care options for Collin County residents</span>
-        </div>
-        <h1 class="hero-title">
-          One simple directory for
-          <span class="highlight">clinics, counseling,</span>
-          and crisis support.
-        </h1>
-        <p class="hero-sub">
-          MedLink TX is a student-built site that brings together trusted options for
-          medical care, mental health counseling, and 24/7 crisis lines, starting with
-          Allen and the wider Collin County area.
-        </p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="scrollToSection('resources-section')">
-            Browse resources <span>↓</span>
-          </button>
-          <button class="btn-secondary" onclick="scrollToSection('how-section')">
-            Learn how to use this page
-          </button>
-        </div>
-        <p class="hero-meta">
-          Not an emergency service. If you or someone else is in immediate danger,
-          call 911 right away.
-        </p>
-      </div>
+    <section>
+      <div class="hero">
+        <div class="hero-text">
+          <div class="hero-tag">
+            <span class="hero-tag-badge">Beta • Student-built</span>
+            MedLink TX finds nearby care in seconds.
+          </div>
+          <h1 class="hero-title">
+            Free & low-cost clinics near
+            <span class="accent">Allen, Texas</span>.
+          </h1>
+          <p class="hero-subtitle">
+            Quickly see community clinics, counseling centers, and 24/7 hotlines.
+            This page is for information only — always contact each place to confirm
+            hours, costs, and what they offer.
+          </p>
 
-      <div class="hero-right reveal">
-        <div class="hero-card">
-          <div class="hero-card-tag">Snapshot · Allen / Collin County</div>
-          <div class="hero-card-title">Support you can reach in a few clicks.</div>
-          <div class="hero-card-sub">
-            Filter by type of help and quickly see what each place offers,
-            who they serve, and how to contact them.
+          <div class="hero-badge-row">
+            <div class="hero-badge">✔ Focused on Collin County area</div>
+            <div class="hero-badge">✔ Mix of medical & mental health</div>
+            <div class="hero-badge">✔ Includes free & sliding-scale options</div>
           </div>
-          <div class="hero-chip-row">
-            <span class="chip chip-strong">Free & sliding-scale clinics</span>
-            <span class="chip">Youth & family counseling</span>
-            <span class="chip">Faith-based options</span>
-            <span class="chip">24/7 hotlines</span>
+
+          <div class="search-shell">
+            <input id="searchInput"
+                   placeholder="Search: allergy, counseling, crisis line, teen, uninsured…" />
+            <button class="search-button" type="button" onclick="scrollToSection('resources')">
+              Browse list
+              <span>↓</span>
+            </button>
           </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-label">Resources listed</div>
-              <div class="stat-value" id="stat-total">–</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Primary focus</div>
-              <div class="stat-value">Allen & Collin Co.</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Project owner</div>
-              <div class="stat-value">High school student</div>
-            </div>
+          <div class="search-note">
+            Tip: Use Ctrl+F / ⌘+F on this page to jump to a city, clinic name, or keyword.
           </div>
         </div>
+
+        <aside class="hero-card" aria-label="Quick access safety card">
+          <div class="hero-card-inner">
+            <div class="hero-card-pill-row">
+              <div class="hero-card-pill">For informational use only</div>
+              <div class="hero-card-pill">Not official medical advice</div>
+            </div>
+            <h2 class="hero-card-title">If this is an emergency</h2>
+            <p class="hero-card-subtitle">
+              If you or someone else is in immediate danger, call <strong>911</strong> right away.
+            </p>
+
+            <div class="hero-card-columns">
+              <div class="hero-chip-col">
+                <div class="hero-chip">
+                  <div class="hero-chip-label">
+                    <strong>988</strong> Suicide & Crisis Lifeline
+                  </div>
+                  <div class="hero-chip-badge">24/7 • Call or text 988</div>
+                </div>
+                <div class="hero-chip">
+                  <div class="hero-chip-label">
+                    <strong>LifePath Systems</strong> – Collin County
+                  </div>
+                  <div class="hero-chip-badge">Crisis line 877-422-5939</div>
+                </div>
+                <div class="hero-chip">
+                  <div class="hero-chip-label">
+                    Crisis Text Line
+                  </div>
+                  <div class="hero-chip-badge">Text HOME to 741741</div>
+                </div>
+              </div>
+              <div class="hero-metrics">
+                <div class="hero-metric">
+                  <div class="hero-metric-label">Where this site focuses</div>
+                  <div class="hero-metric-value">
+                    Allen • McKinney • Plano • Farmersville • Collin County support
+                  </div>
+                </div>
+                <div class="hero-metric">
+                  <div class="hero-metric-label">Good for</div>
+                  <div class="hero-metric-value">
+                    Uninsured, low-income, teens, families, and anyone needing help
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="hero-footnote">
+              Numbers are from public sources and can change. Always check each clinic’s own
+              website or call before you go.
+            </p>
+          </div>
+        </aside>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
-    <section id="how-section" class="section">
-      <div class="section-header reveal">
-        <div>
-          <div class="section-title">How to use MedLink TX</div>
-          <div class="section-sub">
-            This is not a full list of every service in North Texas. It is a focused
-            starting point with organizations that clearly show their mission, contact
-            information, and who they serve.
+    <section id="how">
+      <div class="section-inner">
+        <div class="section-card">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <div class="eyebrow">How MedLink TX works</div>
+              <div class="section-title">3 quick steps to use this directory</div>
+              <div class="section-subtitle">
+                This isn’t a replacement for a doctor or counselor. It’s a clean, simple starting
+                point to help people in and around Allen find real-world resources.
+              </div>
+            </div>
+            <div class="section-actions">
+              Scroll down to the cards below and
+              <strong>click “Call” or “Visit site”</strong> to contact each place directly.
+            </div>
+          </div>
+
+          <div class="step-grid">
+            <article class="step-card">
+              <div class="step-pill">Step 1</div>
+              <h3 class="step-label">Pick what you need help with</h3>
+              <p class="step-body">
+                Decide if you’re looking for <strong>medical care</strong> (checkups, chronic
+                illness, allergies), <strong>mental health care</strong> (therapy, teen programs),
+                or a <strong>crisis hotline</strong>. The filters and search bar can help you narrow down.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-pill">Step 2</div>
+              <h3 class="step-label">Scan the cards for cost + location</h3>
+              <p class="step-body">
+                Cards labeled <strong>Free / sliding-scale</strong> are meant for uninsured or
+                low-income residents. Others may take insurance or have regular visit fees.
+                Double-check details with the clinic when you call.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-pill">Step 3</div>
+              <h3 class="step-label">Call, ask questions, and confirm</h3>
+              <p class="step-body">
+                When you call, ask about cost, what services they offer, and whether they are
+                accepting new patients. Every situation is different, and the clinic is the best
+                source for up-to-date info.
+              </p>
+            </article>
           </div>
         </div>
-      </div>
-
-      <div class="steps-strip">
-        <article class="step-card reveal">
-          <div class="step-label">Step 1</div>
-          <div class="step-title">Pick the type of support</div>
-          <div class="step-body">
-            Use the category buttons to switch between clinics, counseling, and hotlines.
-            You can also search by city, topic, or keyword such as “youth” or “faith-based”.
-          </div>
-        </article>
-
-        <article class="step-card reveal">
-          <div class="step-label">Step 2</div>
-          <div class="step-title">Check the quick overview</div>
-          <div class="step-body">
-            Each card gives a short description, notes if it is free or teen-friendly, and
-            links to the official site where you can confirm hours, costs, and eligibility.
-          </div>
-        </article>
-
-        <article class="step-card reveal">
-          <div class="step-label">Step 3</div>
-          <div class="step-title">Reach out directly</div>
-          <div class="step-body">
-            When you are ready, use the call information or website link on the card.
-            If you are in crisis or feel unsafe, skip the list and contact a 24/7 hotline
-            right away.
-          </div>
-        </article>
       </div>
     </section>
 
-    <!-- FILTERS + GRID -->
-    <section id="resources-section" class="section">
-      <div class="section-header reveal">
-        <div>
-          <div class="section-title">Clinics, counseling, and hotlines</div>
-          <div class="section-sub">
-            Start with the category that fits best. All phone numbers and links are from
-            official or city/county sources, but you should still confirm details with each
-            organization.
+    <!-- RESOURCES -->
+    <section id="resources">
+      <div class="section-inner">
+        <div class="section-card">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <div class="eyebrow">Clinics, counseling & hotlines</div>
+              <div class="section-title">Local & regional resources (about 20 cards)</div>
+              <div class="section-subtitle">
+                Focused near Allen / Collin County, with a mix of <strong>free medical clinics</strong>,
+                <strong>low-cost health centers</strong>, <strong>counseling options</strong>, and
+                <strong>24/7 crisis lines</strong>.
+              </div>
+            </div>
+            <div class="section-actions">
+              Use the filters or search bar above to highlight:
+              <br />
+              <strong>Medical</strong> • <strong>Mental Health</strong> • <strong>Hotlines</strong> •
+              <strong>Free / Sliding-scale</strong>
+            </div>
+          </div>
+
+          <div class="filters-row">
+            <button class="filter-pill active" data-filter="all">
+              <span class="filter-dot"></span> All resources
+            </button>
+            <button class="filter-pill" data-filter="medical">Medical clinics</button>
+            <button class="filter-pill" data-filter="mental">Counseling & therapy</button>
+            <button class="filter-pill" data-filter="crisis">Hotlines & crisis</button>
+            <button class="filter-pill" data-filter="free">Free / sliding-scale focus</button>
+          </div>
+
+          <div class="resource-grid" id="resourceGrid">
+            <!-- cards injected by JS -->
           </div>
         </div>
       </div>
-
-      <div class="filter-bar reveal">
-        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <span class="filter-label">Category:</span>
-          <div class="filter-buttons">
-            <button class="filter-button active" data-category="all">All</button>
-            <button class="filter-button" data-category="clinic">Free clinics</button>
-            <button class="filter-button" data-category="counseling">Counseling</button>
-            <button class="filter-button" data-category="hotline">Hotlines</button>
-          </div>
-        </div>
-
-        <div class="search-input">
-          <span>Search</span>
-          <input type="text" id="searchInput" placeholder="Try 'Allen', 'youth', 'crisis'…" />
-        </div>
-      </div>
-
-      <div id="resourceGrid" class="grid"></div>
     </section>
-
-    <!-- ABOUT PREVIEW -->
-    <section class="section">
-      <div class="section-header reveal">
-        <div>
-          <div class="section-title">Why this project exists</div>
-          <div class="section-sub">
-            MedLink TX began as a high school project to bring local health and mental
-            health resources together on one clear, calm page.
-          </div>
-        </div>
-      </div>
-
-      <p class="about-body reveal">
-        Finding help can feel confusing when you are juggling search results, insurance
-        questions, and out-of-date websites. This site focuses on reliable starting points
-        for people in Allen and Collin County: free and sliding-scale clinics, counseling
-        resources for youth and families, and crisis hotlines that are available 24/7.
-        Every listing links back to its official organization so you can double-check
-        details before you go.
-      </p>
-
-      <div class="pill-row-inline reveal">
-        <span class="pill pill-strong">Student-led directory</span>
-        <span class="pill">North Texas focused</span>
-        <span class="pill">Medical & mental health</span>
-        <span class="pill">Designed for teens & families</span>
-      </div>
-
-      <p class="disclaimer reveal">
-        <strong>Disclaimer:</strong> This website is for general information only and does not
-        replace professional medical or mental health advice, diagnosis, or treatment.
-        Information may change, so please confirm details with each organization. If you
-        are in crisis or thinking about self-harm, call 911 or a 24/7 crisis line immediately.
-      </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div>
-        <strong>MedLink TX</strong> · Student-built health resource directory.
-        <br />
-        Last updated: <span id="lastUpdated">2025</span>
-      </div>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="#top">Back to top</a>
-      </div>
-    </footer>
   </main>
 
-  <script>
-    // ---- Data: 6 verified resources ----
-    const resources = [
-      {
-        name: "Community Health Clinic – McKinney",
-        type: "clinic",
-        city: "McKinney",
-        region: "Collin County",
-        description:
-          "Primary care clinic for eligible uninsured Collin County residents, offering medical visits and support with medications.",
-        phone: "(972) 547-0606",
-        url: "https://www.ccdallas.org/community-health-clinic/",
-        tags: ["medical", "primary care", "uninsured"],
-        free: true,
-        teenFriendly: true,
-        urgent: false
-      }, // info from Collin County & Catholic Charities Dallas listings
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Important:</strong> This site is a student-run project for informational purposes only and
+        is not affiliated with any clinic or organization listed here.
+      </div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="scrollToSection('top')">Back to top ↑</span>
+        <span>Last updated: 2025</span>
+      </div>
+    </div>
+  </footer>
+</div>
 
-      {
-        name: "IAA Free Medical Clinic – Allen",
-        type: "clinic",
-        city: "Allen",
-        region: "Collin County",
-        description:
-          "Faith-based clinic at the Islamic Association of Allen providing basic medical care for adults without insurance on select Saturdays.",
-        phone: "",
-        url: "https://allenmasjid.com/medical-clinic/",
-        tags: ["faith-based", "adults", "no insurance"],
-        free: true,
-        teenFriendly: false,
-        urgent: false
-      }, // information from IAA medical clinic page
+<script>
+  const resources = [
+    /* ---------- FREE / LOW-COST MEDICAL CLINICS ---------- */
+    {
+      name: "CommonGood Medical (formerly Hope Clinic of McKinney)",
+      type: "Free medical clinic",
+      category: "medical",
+      area: "McKinney • Collin County",
+      phone: "469-712-4246",
+      website: "https://commongoodmedical.org",
+      address: "103 E. Lamar St, McKinney, TX 75069",
+      notes:
+        "Faith-based free clinic for uninsured Collin County residents (ages 13+). Primary care, chronic disease management, referrals.",
+      tags: ["free", "uninsured", "primary care"],
+      free: true
+    },
+    {
+      name: "Health Services of North Texas – Plano (HSNT Plano)",
+      type: "Community health center",
+      category: "medical",
+      area: "Plano • Collin County",
+      phone: "940-381-1501",
+      website: "https://healthservicesntx.org/hsnt-plano",
+      address: "5501 Independence Pkwy Ste 110, Plano, TX 75023",
+      notes:
+        "Primary care, pediatrics, behavioral health, lab services. Accepts insurance and offers sliding-fee discounts for eligible patients.",
+      tags: ["sliding-scale", "pediatrics", "behavioral health"],
+      free: true
+    },
+    {
+      name: "Carevide – Farmersville Family Medical Clinic",
+      type: "Community health center",
+      category: "medical",
+      area: "Farmersville • Collin County",
+      phone: "972-782-6131",
+      website: "https://carevide.org",
+      address: "111 N Johnson St, Farmersville, TX 75442",
+      notes:
+        "Non-profit clinic providing primary care with sliding-fee discounts for uninsured or under-insured patients.",
+      tags: ["sliding-scale", "uninsured", "family medicine"],
+      free: true
+    },
+    {
+      name: "Community Health Clinic (Catholic Charities Dallas)",
+      type: "Community health clinic",
+      category: "medical",
+      area: "McKinney",
+      phone: "972-547-0606",
+      website: "https://www.ccdallas.org/community-health-clinic/",
+      address: "4510 Medical Center Dr, Suite 204, McKinney, TX 75069",
+      notes:
+        "Provides high-quality healthcare to underserved individuals and families; focuses on people without reliable access to care.",
+      tags: ["underserved", "primary care"],
+      free: true
+    },
+    {
+      name: "Wellness Direct Primary Care – Family Care & Wellness",
+      type: "Low-cost primary care program",
+      category: "medical",
+      area: "Allen",
+      phone: "972-649-5939",
+      website: "https://www.familycareandwellness.com/services/wellness-direct-primary-care",
+      address: "Allen, TX (see website for location details)",
+      notes:
+        "Membership-based family medicine option designed to be a lower-cost alternative to traditional primary care.",
+      tags: ["low-cost", "family medicine"],
+      free: false
+    },
+    {
+      name: "Total Point Urgent Care – Allen",
+      type: "Urgent care clinic",
+      category: "medical",
+      area: "Allen",
+      phone: "972-818-9370",
+      website: "https://www.totalpointcare.com/locations/allen-texas/",
+      address: "721 S Greenville Ave, Allen, TX 75002 (check site to confirm)",
+      notes:
+        "Affordable urgent care for non-emergency issues as an alternative to the ER. Call or visit website for hours and pricing.",
+      tags: ["urgent care"],
+      free: false
+    },
+    {
+      name: "Allergy & Asthma Associates of Allen",
+      type: "Allergy & asthma specialist",
+      category: "medical",
+      area: "Allen",
+      phone: "972-747-7007",
+      website: "https://allenallergy.com",
+      address: "977 Raintree Cir Ste 100, Allen, TX 75013",
+      notes:
+        "Treats allergies, asthma, and immunology needs. Helpful for chronic breathing issues, severe allergies, and related conditions.",
+      tags: ["allergy", "asthma", "specialist"],
+      free: false
+    },
+    {
+      name: "The ENT & Allergy Centers of Texas – Allen",
+      type: "ENT & allergy clinic",
+      category: "medical",
+      area: "Allen",
+      phone: "972-984-1050",
+      website: "https://www.enttx.com/locations/allen-tx/",
+      address: "1105 Central Expy N, Suite 230, Allen, TX 75013 (verify on website)",
+      notes:
+        "Ear, nose, throat, and allergy care for children and adults. Call for insurance and cost details.",
+      tags: ["ENT", "allergy"],
+      free: false
+    },
 
-      {
-        name: "Community Counseling Associates – Allen",
-        type: "counseling",
-        city: "Allen",
-        region: "Collin County",
-        description:
-          "Counseling practice offering individual, family, child, and teen therapy with daytime, evening, and weekend appointments.",
-        phone: "(214) 509-6888",
-        url: "https://www.communitycounselingassociates.com/",
-        tags: ["therapy", "teens", "families"],
-        free: false,
-        teenFriendly: true,
-        urgent: false
-      },
+    /* ---------- LOCAL COUNSELING & MENTAL HEALTH ---------- */
+    {
+      name: "316 Counseling Center",
+      type: "Non-profit counseling center",
+      category: "mental",
+      area: "Allen",
+      phone: "214-856-4009",
+      website: "https://www.316counselingcenter.org",
+      address: "333 E Bethany Dr Ste B130, Allen, TX 75002",
+      notes:
+        "Non-profit practice offering play therapy for kids, teen and adult counseling, and faith-based support. Ask about fees and any sliding-scale options.",
+      tags: ["counseling", "faith-based", "kids & teens"],
+      free: false
+    },
+    {
+      name: "Ellie Mental Health – Allen",
+      type: "Therapy clinic",
+      category: "mental",
+      area: "Allen",
+      phone: "972-737-9667",
+      website: "https://elliementalhealth.com/locations/allen-tx/",
+      address: "1125 Raintree Cir Ste 101, Allen, TX 75013",
+      notes:
+        "Comfortable, judgment-free clinic for kids, teens, adults, couples, and families. Offers in-person and some virtual options.",
+      tags: ["counseling", "teens", "adults"],
+      free: false
+    },
+    {
+      name: "Community Counseling Associates – Allen",
+      type: "Counseling group practice",
+      category: "mental",
+      area: "Allen / North Collin County",
+      phone: "214-509-6888",
+      website: "https://www.communitycounselingassociates.com",
+      address: "1506 N Greenville Ave Suite 200, Allen, TX 75002",
+      notes:
+        "Counseling for children, teens, and adults; play therapy, teen counseling, couples, and family counseling. Some providers accept insurance; others offer sliding-scale.",
+      tags: ["counseling", "kids & teens", "families"],
+      free: false
+    },
+    {
+      name: "I Choose Change – Allen Counseling Center",
+      type: "Counseling & therapy intensives",
+      category: "mental",
+      area: "Allen / Plano area",
+      phone: "214-547-1318",
+      website: "https://www.ichoosechange.com",
+      address: "1514 N Greenville Ave Ste 310, Allen, TX 75002",
+      notes:
+        "Offers individual counseling, teen counseling, couples therapy, and intensive programs. Call or text to ask about availability and pricing.",
+      tags: ["counseling", "intensives", "teens & adults"],
+      free: false
+    },
+    {
+      name: "BasePoint Academy – Teen Mental Health Programs",
+      type: "Teen treatment center (PHP/IOP)",
+      category: "mental",
+      area: "Forney • McKinney • DFW (serves Allen area)",
+      phone: "972-357-1749",
+      website: "https://basepointacademy.com",
+      address: "Multiple DFW locations; McKinney location serves Collin County (see website).",
+      notes:
+        "Day-treatment and intensive outpatient programs for teens (11-18) with anxiety, depression, suicidal thoughts, substance use, and other issues. Accepts many insurance plans.",
+      tags: ["teens", "higher level of care"],
+      free: false
+    },
+    {
+      name: "NAMI North Texas",
+      type: "Education & support (not therapy)",
+      category: "mental",
+      area: "Dallas • Collin • Denton • Rockwall Counties",
+      phone: "800-950-6264 (NAMI HelpLine)",
+      website: "https://www.naminorthtexas.org",
+      address: "Serves North Texas region (see website for local groups).",
+      notes:
+        "Free education classes and peer/family support groups for people living with mental illness and their families. Not a therapy clinic, but a big support network.",
+      tags: ["support groups", "education", "families"],
+      free: true
+    },
+    {
+      name: "Here For Texas Mental Health Navigation Line",
+      type: "Resource & referral line",
+      category: "mental",
+      area: "North Texas",
+      phone: "972-525-8181 (check website for latest)",
+      website: "https://www.herefortexas.com",
+      address: "Phone/online navigation service for Texas.",
+      notes:
+        "Helps people find mental health and substance-use services in Texas, including low-cost and sliding-scale options. Not a crisis line.",
+      tags: ["navigation", "referrals"],
+      free: true
+    },
+    {
+      name: "Collin College – Counseling Resources (students only)",
+      type: "College counseling & referrals",
+      category: "mental",
+      area: "Collin College campuses",
+      phone: "See campus counseling office numbers",
+      website: "https://www.collin.edu/studentresources/counseling/",
+      address: "Multiple Collin College locations.",
+      notes:
+        "For current Collin College students: short-term counseling, referrals, and crisis information, including 24/7 hotlines.",
+      tags: ["students", "college"],
+      free: true
+    },
 
-      {
-        name: "Harold G. Murphy Center",
-        type: "counseling",
-        city: "McKinney",
-        region: "Collin County",
-        description:
-          "Sliding-scale counseling services, including individual, family, group, and parenting support for children and their caregivers.",
-        phone: "469-302-6318",
-        url: "https://www.allenpolice.org/services/mental_health_resources.php",
-        tags: ["youth", "families", "sliding scale"],
-        free: false,
-        teenFriendly: true,
-        urgent: false
-      }, // listed on City of Allen mental health resources page
+    /* ---------- CRISIS LINES & HOTLINES ---------- */
+    {
+      name: "LifePath Systems – Collin County Crisis Hotline",
+      type: "24/7 mental health crisis line",
+      category: "crisis",
+      area: "Collin County (including Allen)",
+      phone: "877-422-5939",
+      website: "https://www.lifepathsystems.org/get-help/crisis-services/",
+      address: "Phone-based service; mobile crisis team available.",
+      notes:
+        "24/7 hotline for adults and children in Collin County. Can send a mobile crisis team and connect you with local mental health services.",
+      tags: ["crisis", "mobile team", "mental health"],
+      free: true
+    },
+    {
+      name: "988 Suicide & Crisis Lifeline",
+      type: "National 24/7 crisis line",
+      category: "crisis",
+      area: "United States",
+      phone: "Call or text 988",
+      website: "https://988lifeline.org",
+      address: "Phone/text and online chat; nationwide coverage.",
+      notes:
+        "Free, confidential support for anyone in emotional distress, having suicidal thoughts, or worried about someone else. You can also chat online from the website.",
+      tags: ["suicide prevention", "national", "text & call"],
+      free: true
+    },
+    {
+      name: "Crisis Text Line",
+      type: "24/7 crisis text support",
+      category: "crisis",
+      area: "United States",
+      phone: "Text HOME to 741741",
+      website: "https://www.crisistextline.org",
+      address: "Text-based support; no physical location.",
+      notes:
+        "Text with a trained crisis counselor about anxiety, depression, self-harm, or any big feelings. Free and confidential.",
+      tags: ["text", "teens & young adults"],
+      free: true
+    },
+    {
+      name: "Suicide and Crisis Center of North Texas",
+      type: "24/7 crisis hotline",
+      category: "crisis",
+      area: "Dallas–Fort Worth area",
+      phone: "214-828-1000",
+      website: "https://www.sccenter.org",
+      address: "Phone-based support; Dallas-area focus.",
+      notes:
+        "Local crisis line for people in emotional or suicidal crisis. Can help you talk through what’s going on and connect you to resources.",
+      tags: ["suicide prevention", "local hotline"],
+      free: true
+    },
+    {
+      name: "North Texas Behavioral Health Authority (NTBHA) – Crisis Hotline",
+      type: "24/7 mental health crisis line",
+      category: "crisis",
+      area: "Dallas, Ellis, Hunt, Kaufman, Navarro & Rockwall Counties",
+      phone: "866-260-8000",
+      website: "https://ntbha.org",
+      address: "Phone-based crisis services.",
+      notes:
+        "For counties just south/east of Collin. Provides crisis support and helps connect people to mental health and substance-use services.",
+      tags: ["crisis", "mobile team"],
+      free: true
+    }
+  ];
 
-      {
-        name: "988 Suicide & Crisis Lifeline",
-        type: "hotline",
-        city: "Nationwide",
-        region: "United States",
-        description:
-          "Call or text 988 anytime to reach trained counselors for suicidal thoughts, emotional distress, or concern for someone else.",
-        phone: "988",
-        url: "https://988lifeline.org/",
-        tags: ["24/7", "phone", "text"],
-        free: true,
-        teenFriendly: true,
-        urgent: true
-      },
+  const grid = document.getElementById("resourceGrid");
+  const searchInput = document.getElementById("searchInput");
+  const filterPills = document.querySelectorAll(".filter-pill");
 
-      {
-        name: "Crisis Text Line",
-        type: "hotline",
-        city: "Nationwide",
-        region: "United States",
-        description:
-          "Text HOME to 741741 to connect with a trained crisis counselor by text message, 24/7 and free of charge.",
-        phone: "Text HOME to 741741",
-        url: "https://www.crisistextline.org/",
-        tags: ["24/7", "text", "anxiety", "depression"],
-        free: true,
-        teenFriendly: true,
-        urgent: true
+  let activeFilter = "all";
+
+  function renderResources() {
+    const query = (searchInput.value || "").toLowerCase().trim();
+    grid.innerHTML = "";
+
+    resources.forEach((res) => {
+      const matchesFilter =
+        activeFilter === "all" ||
+        (activeFilter === "medical" && res.category === "medical") ||
+        (activeFilter === "mental" && res.category === "mental") ||
+        (activeFilter === "crisis" && res.category === "crisis") ||
+        (activeFilter === "free" && res.free);
+
+      const haystack =
+        (res.name + " " + res.type + " " + res.area + " " + res.notes + " " +
+          (res.tags || []).join(" "))
+          .toLowerCase();
+
+      const matchesQuery = !query || haystack.includes(query);
+
+      if (!matchesFilter || !matchesQuery) return;
+
+      const card = document.createElement("article");
+      card.className = "resource-card";
+
+      const header = document.createElement("div");
+      header.className = "resource-header";
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "resource-name";
+      nameEl.textContent = res.name;
+
+      const typeBadge = document.createElement("div");
+      typeBadge.className = "badge-type";
+      typeBadge.textContent = res.type;
+
+      header.appendChild(nameEl);
+      header.appendChild(typeBadge);
+
+      const meta = document.createElement("div");
+      meta.className = "resource-meta";
+      meta.innerHTML = `<strong>${res.area}</strong>${
+        res.address ? " · " + res.address : ""
+      }`;
+
+      const notes = document.createElement("div");
+      notes.className = "resource-notes";
+      notes.textContent = res.notes;
+
+      const tagsRow = document.createElement("div");
+      tagsRow.className = "resource-tags";
+
+      if (res.free) {
+        const t = document.createElement("span");
+        t.className = "tag-pill free";
+        t.textContent = "Free / sliding-scale focus";
+        tagsRow.appendChild(t);
       }
-    ];
 
-    const grid = document.getElementById("resourceGrid");
-    const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const statTotal = document.getElementById("stat-total");
-    const lastUpdated = document.getElementById("lastUpdated");
-
-    // Reveal animation
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.16 }
-    );
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-    function renderResources(activeCategory = "all", searchTerm = "") {
-      grid.innerHTML = "";
-
-      const normalizedSearch = searchTerm.trim().toLowerCase();
-
-      const filtered = resources.filter((item) => {
-        const matchesCategory = activeCategory === "all" || item.type === activeCategory;
-        const combined =
-          (item.name +
-            " " +
-            item.city +
-            " " +
-            item.region +
-            " " +
-            item.description +
-            " " +
-            item.tags.join(" "))
-            .toLowerCase();
-        const matchesSearch = !normalizedSearch || combined.includes(normalizedSearch);
-        return matchesCategory && matchesSearch;
+      (res.tags || []).forEach((tag) => {
+        const t = document.createElement("span");
+        t.className = "tag-pill";
+        t.textContent = tag;
+        tagsRow.appendChild(t);
       });
 
-      if (filtered.length === 0) {
-        const empty = document.createElement("article");
-        empty.className = "card reveal";
-        empty.innerHTML = `
-          <h3 class="card-title">No matches yet</h3>
-          <p class="card-desc" style="margin-top:4px;">
-            Try a different city, keyword, or category. You can always contact a 24/7 crisis
-            hotline listed above if you need immediate support.
-          </p>
-        `;
-        grid.appendChild(empty);
-        observer.observe(empty);
-        return;
+      const actions = document.createElement("div");
+      actions.className = "resource-actions";
+
+      if (res.phone) {
+        const callBtn = document.createElement("a");
+        callBtn.className = "resource-link primary";
+        callBtn.href = "tel:" + res.phone.replace(/[^0-9+]/g, "");
+        callBtn.innerHTML = `<span class="badge-dot"></span> Call: ${res.phone}`;
+        actions.appendChild(callBtn);
       }
 
-      filtered.forEach((item, index) => {
-        const card = document.createElement("article");
-        card.className = "card reveal";
-        card.style.transitionDelay = index * 40 + "ms";
-
-        const typeLabel =
-          item.type === "clinic"
-            ? "Free / Low-Cost Clinic"
-            : item.type === "counseling"
-            ? "Counseling & Therapy"
-            : "24/7 Hotline";
-
-        const phoneLabel = item.phone || "See website for contact info";
-        const isTextLine = phoneLabel.toLowerCase().includes("text home");
-
-        card.innerHTML = `
-          <div class="card-type-pill">${typeLabel}</div>
-          <h3 class="card-title">${item.name}</h3>
-          <div class="card-location">${item.city} · ${item.region}</div>
-          <div class="card-tags">
-            ${item.free ? `<span class="card-tag badge-free">Free or sliding-scale</span>` : ""}
-            ${item.teenFriendly ? `<span class="card-tag badge-teen">Teen-friendly</span>` : ""}
-            ${item.urgent ? `<span class="card-tag badge-urgent">Crisis / 24/7</span>` : ""}
-            ${item.tags.map((tag) => `<span class="card-tag">${tag}</span>`).join("")}
-          </div>
-          <p class="card-desc">${item.description}</p>
-          <div class="card-actions">
-            <button class="card-call ${item.phone ? "" : "disabled"}" ${
-          item.phone ? `onclick="handleCallClick('${phoneLabel.replace(/'/g, "\\'")}')"` : ""
-        }>
-              📞 <span>${phoneLabel}</span>
-            </button>
-            <a class="card-link" href="${item.url}" target="_blank" rel="noopener noreferrer">
-              Visit website <span>↗</span>
-            </a>
-          </div>
-        `;
-
-        grid.appendChild(card);
-        observer.observe(card);
-      });
-    }
-
-    function handleCallClick(phone) {
-      if (!phone) return;
-      const lower = phone.toLowerCase();
-
-      if (lower.includes("text home")) {
-        alert("Open your messaging app and text HOME to 741741 to reach Crisis Text Line.");
-        return;
-      }
-      if (phone === "988") {
-        alert("Dial 988 from your phone to reach the Suicide & Crisis Lifeline.");
-        return;
+      if (res.website) {
+        const siteBtn = document.createElement("a");
+        siteBtn.className = "resource-link";
+        siteBtn.href = res.website;
+        siteBtn.target = "_blank";
+        siteBtn.rel = "noopener noreferrer";
+        siteBtn.textContent = "Visit site ↗";
+        actions.appendChild(siteBtn);
       }
 
-      const digits = phone.replace(/[^0-9+]/g, "");
-      if (digits) {
-        window.location.href = `tel:${digits}`;
-      }
-    }
+      card.appendChild(header);
+      card.appendChild(meta);
+      card.appendChild(notes);
+      card.appendChild(tagsRow);
+      card.appendChild(actions);
 
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Filter buttons
-    let currentCategory = "all";
-
-    filterButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filterButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentCategory = btn.getAttribute("data-category");
-        renderResources(currentCategory, searchInput.value);
-      });
+      grid.appendChild(card);
     });
 
-    // Search
-    searchInput.addEventListener("input", () => {
-      renderResources(currentCategory, searchInput.value);
+    if (!grid.children.length) {
+      const empty = document.createElement("div");
+      empty.style.fontSize = "0.8rem";
+      empty.style.color = "#6b7280";
+      empty.textContent =
+        "No matches. Try clearing filters or searching something broader like “clinic” or “counseling”.";
+      grid.appendChild(empty);
+    }
+  }
+
+  filterPills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      filterPills.forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      activeFilter = pill.dataset.filter;
+      renderResources();
+      scrollToSection("resources");
     });
+  });
 
-    // Stats + last updated
-    statTotal.textContent = resources.length.toString();
-    const now = new Date();
-    lastUpdated.textContent = now.getFullYear().toString();
-
-    // Initial render
+  searchInput.addEventListener("input", () => {
     renderResources();
-  </script>
+  });
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // initial render
+  renderResources();
+</script>
 </body>
 </html>
